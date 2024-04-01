@@ -1,6 +1,9 @@
 import { Button } from "antd";
 import Header from "./components/Header";
-
+import Image from "next/image";
+import { Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+import Card from "./components/Card";
 
 export default function Home() {
   return (
@@ -16,7 +19,14 @@ export default function Home() {
               type="primary">
               Add Check In
             </Button>
+
           </div>
+        </div>
+      </div>
+      <div className="check-in-container">
+        <h1>Added CheckIns</h1>
+        <div className="checkIn-card-area">
+          <Card/>
         </div>
       </div>
     </main>

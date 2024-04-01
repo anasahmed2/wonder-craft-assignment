@@ -24,7 +24,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #7b5aff;;
+  background-color: #7b5aff;
+  ;
 }
 
 .header-logo h4 {
@@ -32,27 +33,28 @@
   font-weight: 500;
 }
 
-.nav-items{
- display: flex;
- justify-content: space-between;
- align-items: center;
- gap: 10px; 
+.nav-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 }
-.nav-btn{
+
+.nav-btn {
   max-width: 166px;
   background-color: #7b5aff;
-  padding: 7px 20px ;
+  padding: 7px 20px;
   height: auto;
   border-radius: 30px;
 }
 
-.nav-btn span{
+.nav-btn span {
   font-size: 15px;
 
 }
 
-.nav-btn:hover{
-  background-color:#6242e4!important;
+.nav-btn:hover {
+  background-color: #6242e4 !important;
 }
 
 .hero-container {
@@ -67,7 +69,7 @@
   background-position-y: 80%;
 }
 
-.hero-inner-box{
+.hero-inner-box {
   height: 280px;
   border-radius: 20px 0px 0px 20px;
   background: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0) 55.12%);
@@ -76,8 +78,8 @@
   align-items: center;
 }
 
-.hero-content h1{
-  font-size:34px ;
+.hero-content h1 {
+  font-size: 34px;
   font-weight: 600;
 }
 
@@ -87,7 +89,88 @@
   margin-bottom: 30px;
 }
 
-.hero-btn-style{
-  min-width: 166px!important;
-  padding: 14px 20px!important;
+.hero-btn-style {
+  min-width: 166px !important;
+  padding: 14px 20px !important;
+}
+
+.check-in-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.check-in-container h1 {
+  font-size: 30px;
+  font-weight: 500;
+  margin: 30px 0px;
+}
+
+.card-container {
+  width: fit-content;
+  border-radius: 20px;
+  padding: 24px 21px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 14px 17px 40px 0px rgba(0, 0, 0, 0.13);
+  gap: 20px;
+}
+
+.card-img-conatiner {
+  position: relative;
+}
+
+.card-img {
+  object-fit: cover;
+  object-position: center;
+  height: 160px;
+  width: 100% !important;
+  border-radius: 20px;
+  background-color: #718096;
+}
+
+.card-checkIn {
+  width: 120px;
+  text-align: center;
+  height: auto;
+  padding: 10px 5px;
+  border-radius: 30px;
+  background-color: #7b5aff;
+  color: #fff;
+  font-size: 14px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.card-container h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.card-container>p {
+  font-weight: 16px;
+  font-weight: 400;
+  margin: 0;
+  color: #718096;
+}
+
+.card-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-profile {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+
+.checkIn-card-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
 }

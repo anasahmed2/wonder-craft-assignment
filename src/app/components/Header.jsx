@@ -1,8 +1,8 @@
 import React from 'react'
-import { Button } from "antd";
 import Image from 'next/image';
-import { UserOutlined } from '@ant-design/icons';
+import { Button } from "antd";
 import { Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 
 function Header() {
     return (

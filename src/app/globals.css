@@ -54,3 +54,40 @@
 .nav-btn:hover{
   background-color:#6242e4!important;
 }
+
+.hero-container {
+  max-width: 1200px;
+  background-image: url("/assets/hero-bg.jpeg");
+  background-size: cover;
+  margin: 20px auto 0px auto;
+  border-radius: 20px;
+  color: #fff;
+  box-shadow: 14px 17px 40px 0px rgba(0, 0, 0, 0.13);
+  padding: 0 !important;
+  background-position-y: 80%;
+}
+
+.hero-inner-box{
+  height: 280px;
+  border-radius: 20px 0px 0px 20px;
+  background: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0) 55.12%);
+  padding: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content h1{
+  font-size:34px ;
+  font-weight: 600;
+}
+
+.hero-content p {
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+
+.hero-btn-style{
+  min-width: 166px!important;
+  padding: 14px 20px!important;
+}

@@ -57,7 +57,6 @@ export default function Home() {
         </div>
       </div>
       <CheckInModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
-
     </main>
   );
 }

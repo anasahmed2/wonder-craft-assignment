@@ -1,14 +1,10 @@
 import { Avatar ,Image} from 'antd'
 import React from 'react'
-import { format } from 'date-fns';
 import { UserOutlined } from '@ant-design/icons';
-
+import { format } from 'date-fns';
 
 function Card(props) {
     const { image, timestamp, title } = props;
-
-    console.log(image)
-
     return (
         <main className="card-container" >
             <div className="card-img-conatiner">
@@ -30,7 +26,6 @@ function Card(props) {
                 <p>Owner: John Doe</p>
             </div>
         </main>
-
     )
 }
 

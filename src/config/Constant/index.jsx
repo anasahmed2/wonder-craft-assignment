@@ -1,10 +1,9 @@
 import { storage, ref, uploadBytesResumable, getDownloadURL, db, collection, addDoc } from "../../config/Firebase/index.js"
 
-
 export const uploadFile = (file) => {
     console.log(file)
     return new Promise((resolve, reject) => {
-        const mountainsRef = ref(storage, `anas/${file.name}`);
+        const mountainsRef = ref(storage, `checkIns/${file.name}`);
         const uploadTask = uploadBytesResumable(mountainsRef, file);
         uploadTask.on('state_changed',
             (snapshot) => {

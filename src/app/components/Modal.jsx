@@ -1,41 +1,64 @@
 "use client"
 import React, { useState } from 'react';
-import { Button, Modal, Input } from 'antd';
+import { Button, Modal, Input, Upload } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
-import { message, Upload } from 'antd';
+import { uploadFile, AddData } from '@/config/Constant/index.jsx';
+
 const { Dragger } = Upload;
 
-const props = {
-    name: 'file',
-    multiple: true,
-    action: 'https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188',
-    onChange(info) {
-        const { status } = info.file;
-        if (status !== 'uploading') {
-            console.log(info.file, info.fileList);
-        }
-        if (status === 'done') {
-            message.success(`${info.file.name} file uploaded successfully.`);
-        } else if (status === 'error') {
-            message.error(`${info.file.name} file upload failed.`);
-        }
-    },
-    onDrop(e) {
-        console.log('Dropped files', e.dataTransfer.files);
-    },
-};
-
-
-
 const CheckInModal = ({ modalOpen, setModalOpen }) => {
-    const showModalss = () => {
-        setModalOpen(true);
+
+    const [image, setImage] = useState();
+    const [title, setTitle] = useState();
+
+    const props = {
+        name: "file",
+        multiple: false,
+        action: "https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188",
+        onChange(info) {
+            const { status, response } = info.file;
+            if (status !== "uploading") {
+                console.log(info.file, info.fileList);
+            }
+            if (status === "done") {
+                message.success(`${info.file.name} file uploaded successfully.`);
+                uploadFile(info.file.originFileObj)
+                    .then((url) => {
+                        setImage(url);
+                    })
+                    .catch((error) => {
+                        console.error("Error uploading file:", error);
+                    });
+            } else if (status === "error") {
+                uploadFile(info.file.originFileObj)
+                    .then((url) => {
+                        setImage(url);
+                    })
+                    .catch((error) => {
+                        console.error("Error uploading file:", error);
+                    });
+            }
+        },
+        onDrop(e) {
+            console.log("Dropped files", e.dataTransfer.files);
+        },
     };
-    const handleOk = () => {
-        //======= this is for oky
-        setModalOpen(false);
-        console.log("handle oky")
+
+
+    const handlerCheckIn = async () => {
+        try {
+            await AddData(title, image)
+            resetFeilds()
+            setModalOpen(false)
+        } catch (e) {
+            console.log("Error adding document: ", e)
+        }
     };
+
+    const resetFeilds = () => {
+        setTitle("")
+        setImage()
+    }
 
     return (
         <>
@@ -53,8 +76,9 @@ const CheckInModal = ({ modalOpen, setModalOpen }) => {
                     <Button
                         key="submit"
                         type="primary"
-                        onClick={handleOk}
+                        onClick={handlerCheckIn}
                         className="nav-btn"
+                        disabled={!image}
                     >
                         Add
                     </Button>,
@@ -62,12 +86,13 @@ const CheckInModal = ({ modalOpen, setModalOpen }) => {
                 <div className='modal-container'>
                     <div className='modal-input-conatiner'>
                         <h3>Title</h3>
-                        <Input type='text' placeholder='Enter title' />
+                        <Input type='text' value={title} placeholder='Enter title' onChange={e => setTitle(e.target.value)} />
                     </div>
-
                     <div className='modal-input-conatiner'>
                         <h3>Uploader Image</h3>
-                        <Dragger {...props}>
+                        <Dragger
+                            accept=".png,.jpeg,.doc"
+                            {...props}>
                             <p className="ant-upload-drag-icon">
                                 <InboxOutlined />
                             </p>
@@ -78,6 +103,7 @@ const CheckInModal = ({ modalOpen, setModalOpen }) => {
                             </p>
                         </Dragger>
                     </div>
+
                 </div>
             </Modal>
         </>

@@ -1,27 +1,30 @@
-import { Avatar } from 'antd'
-import Image from 'next/image'
+import { Avatar ,Image} from 'antd'
 import React from 'react'
+import { format } from 'date-fns';
 import { UserOutlined } from '@ant-design/icons';
 
 
-function Card() {
+function Card(props) {
+    const { image, timestamp, title } = props;
+
+    console.log(image)
+
     return (
         <main className="card-container" >
             <div className="card-img-conatiner">
                 <Image
                     className="card-img"
-                    src={`/assets/card-img.png`}
+                    src={`${image}`}
                     alt="card img"
-                    width={270}
-                    height={160}
+                   
                 />
                 <div className="card-checkIn">
                     Checked In
                 </div>
             </div>
 
-            <h3>CheckIns Name</h3>
-            <p className="card-date">12th Nov, 2022</p>
+            <h3>{title}</h3>
+            <p className="card-date">{format((timestamp.toDate()), 'dd MMM, yyyy')}</p>
             <div className="card-profile">
                 <Avatar size="large" icon={<UserOutlined />} />
                 <p>Owner: John Doe</p>
